@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="GestionStages">
+  <DataContextMoniker Name="/GestionStagesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d826529e-0c14-46b7-836b-c8df610809e8" absoluteBounds="3.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/GestionStagesDataContext/Stage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="73d29285-f4f6-4af6-ab68-2bfed31191eb" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f547eec8-254e-4786-940d-183b2ae7eff2" absoluteBounds="0.75, 1, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/GestionStagesDataContext/Superviseur" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bef45c02-ab03-4dba-824e-6171e099f10f" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3fdda53-9924-47ab-81db-6296b8a171f8" absoluteBounds="0.75, 5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/GestionStagesDataContext/Stagiaire" />
+      <nestedChildShapes>
+        <elementListCompartment Id="86f13a93-e09a-4281-aedd-fcc62bbf1485" absoluteBounds="0.765, 5.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.98159912109375); (3.5 : 1.98159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GestionStagesDataContext/Superviseur/Superviseur_Stage" />
+      <nodes>
+        <classShapeMoniker Id="f547eec8-254e-4786-940d-183b2ae7eff2" />
+        <classShapeMoniker Id="d826529e-0c14-46b7-836b-c8df610809e8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.98159912109375); (4.5 : 5.98159912109375); (4.5 : 3.03049967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/GestionStagesDataContext/Stagiaire/Stagiaire_Stage" />
+      <nodes>
+        <classShapeMoniker Id="b3fdda53-9924-47ab-81db-6296b8a171f8" />
+        <classShapeMoniker Id="d826529e-0c14-46b7-836b-c8df610809e8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bfef3cff-4c98-41b9-9816-5e97fac997e9" absoluteBounds="1, 3.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/GestionStagesDataContext/Administrateur" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c2be5488-f9fc-4b59-9e9e-a464772c6579" absoluteBounds="1.0150000000000001, 3.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="GestionStages" Class="GestionStagesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\GestionStages.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="GestionStagesConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Stage" Member="Stages">
+    <Type Name="Stage">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Titre" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Début" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Fin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Commentaire" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="SupersiveurId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StagiaireId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Superviseur_Stage" Member="Superviseur" ThisKey="SupersiveurId" OtherKey="Id" Type="Superviseur" IsForeignKey="true" />
+      <Association Name="Stagiaire_Stage" Member="Stagiaire" ThisKey="StagiaireId" OtherKey="Id" Type="Stagiaire" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Superviseur" Member="Superviseurs">
+    <Type Name="Superviseur">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Téléphone" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Courriel" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="NomUtilisateur" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MotDePasse" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Superviseur_Stage" Member="Stages" ThisKey="Id" OtherKey="SupersiveurId" Type="Stage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stagiaire" Member="Stagiaires">
+    <Type Name="Stagiaire">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Téléphone" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Courriel" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="NomUtilisateur" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MotDePasse" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Stagiaire_Stage" Member="Stages" ThisKey="Id" OtherKey="StagiaireId" Type="Stage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Administrateur" Member="Administrateurs">
+    <Type Name="Administrateur">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NomUtilisateur" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MotDePasse" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
