@@ -70,20 +70,16 @@
     <Content Include="App_Data\GestionStages_log.ldf">
       <DependentUpon>GestionStages.mdf</DependentUpon>
     </Content>
-    <Content Include="Default.aspx" />
     <Content Include="Web.config" />
     <Content Include="Acceuil.aspx" />
     <Content Include="ListerStages.aspx" />
+    <Content Include="Utilisateur.aspx" />
+    <Content Include="AjouterModifierStagiaireSuperviseur.aspx" />
+    <Content Include="AjouterModifierStage.aspx" />
+    <Content Include="ListerSuperviseurEtStagiaire.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BDGestionStages.cs" />
-    <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="GestionStages.cs">
       <DependentUpon>GestionStages.dbml</DependentUpon>
     </Compile>
@@ -113,6 +109,34 @@
     </Compile>
     <Compile Include="ListerStages.aspx.designer.cs">
       <DependentUpon>ListerStages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilisateur.aspx.cs">
+      <DependentUpon>Utilisateur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilisateur.aspx.designer.cs">
+      <DependentUpon>Utilisateur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterModifierStagiaireSuperviseur.aspx.cs">
+      <DependentUpon>AjouterModifierStagiaireSuperviseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjouterModifierStagiaireSuperviseur.aspx.designer.cs">
+      <DependentUpon>AjouterModifierStagiaireSuperviseur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjouterModifierStage.aspx.cs">
+      <DependentUpon>AjouterModifierStage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjouterModifierStage.aspx.designer.cs">
+      <DependentUpon>AjouterModifierStage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListerSuperviseurEtStagiaire.aspx.cs">
+      <DependentUpon>ListerSuperviseurEtStagiaire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListerSuperviseurEtStagiaire.aspx.designer.cs">
+      <DependentUpon>ListerSuperviseurEtStagiaire.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

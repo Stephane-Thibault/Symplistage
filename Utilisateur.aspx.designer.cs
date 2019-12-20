@@ -10,69 +10,69 @@
 namespace TP2 {
     
     
-    public partial class WebForm1 {
+    public partial class WebForm3 {
         
         /// <summary>
-        /// lblGrade control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGrade;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// ddlGrade control.
+        /// ddlAjouter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGrade;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAjouter;
         
         /// <summary>
-        /// lblId control.
+        /// btnLister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblId;
+        protected global::System.Web.UI.WebControls.Button btnLister;
         
         /// <summary>
-        /// txtId control.
+        /// ddl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtId;
+        protected global::System.Web.UI.WebControls.DropDownList ddl;
         
         /// <summary>
-        /// lblMotPasse control.
+        /// btnModifierStages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMotPasse;
+        protected global::System.Web.UI.WebControls.Button btnModifierStages;
         
         /// <summary>
-        /// txtMotPasse control.
+        /// ddlStagiaires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMotPasse;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStagiaires;
         
         /// <summary>
-        /// btnConnection control.
+        /// btnQuitter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConnection;
+        protected global::System.Web.UI.WebControls.Button btnQuitter;
     }
 }

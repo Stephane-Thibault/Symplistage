@@ -7,3 +7,10 @@ C:\Users\zeios\OneDrive\DEC intensif\Session 3\Programmation en gestion\TP2\TP2_
 C:\Users\zeios\OneDrive\DEC intensif\Session 3\Programmation en gestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.csproj.CoreCompileInputs.cache
 C:\Users\zeios\OneDrive\DEC intensif\Session 3\Programmation en gestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.dll
 C:\Users\zeios\OneDrive\DEC intensif\Session 3\Programmation en gestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.pdb
+C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\bin\TP2.dll.config
+C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\bin\TP2.dll
+C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\bin\TP2.pdb
+C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.csprojAssemblyReference.cache
+C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.csproj.CoreCompileInputs.cache
+C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.dll
+C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.pdb
