@@ -51,7 +51,7 @@ namespace TP2
         public void Ajouter(Stagiaire p_Stagiaire)
         {
             Debug.Assert(p_Stagiaire != null, "p_Stagiaire doit être différent de null");
-            
+
             
         }
 
@@ -145,8 +145,6 @@ namespace TP2
             Debug.Assert(p_Stage != null, "p_Stage doit être différent de null");
             Debug.Assert(GetSuperviseur(p_SuperviseurId) != null, "Le superviseur doit exister");
             Debug.Assert(GetStagiaire(p_StagiaireId) != null, "Le stagiaire doit exister");
-
-            
         }
 
         /// <summary>

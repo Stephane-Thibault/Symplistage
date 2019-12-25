@@ -15,17 +15,21 @@
         <tr>
             <td><asp:Label ID="lblId" runat="server" Text="Identifiant : "></asp:Label></td>
             <td><asp:TextBox ID="txtId" runat="server"></asp:TextBox></td>
+            <td><asp:RequiredFieldValidator ID="rfID" ControlToValidate="txtId" runat="server" ErrorMessage="Le champ ne peut pas être laissé vide."></asp:RequiredFieldValidator></td>
+            <td><asp:RegularExpressionValidator ControlToValidate="txtId" ID="regexValidatorID" runat="server" ErrorMessage="L'identifiant nepeut être composé que de chiffres." ValidationExpression="[0-9]+"></asp:RegularExpressionValidator></td>
         </tr>
         <tr>
-            <td><asp:Label ID="lblMotPasse" runat="server" Text="Mot de passe : "></asp:Label></td>
-            <td><asp:TextBox ID="txtMotPasse" runat="server"></asp:TextBox></td>
+            <td style="height: 26px"><asp:Label ID="lblMotPasse" runat="server" Text="Mot de passe : "></asp:Label></td>
+            <td style="height: 26px"><asp:TextBox ID="txtMotPasse" runat="server"></asp:TextBox></td>
+            <td><asp:RequiredFieldValidator ID="rfvMotPasse" ControlToValidate="txtMotPasse" runat="server" ErrorMessage="Le champ ne peut pas être laissé vide."></asp:RequiredFieldValidator></td>
+
         </tr>
         <tr>
             <td></td>
         </tr>
         <tr>
             <td></td>
-            <td><asp:Button ID="btnConnection" runat="server" Text="Connection" /></td>
+            <td><asp:Button ID="btnConnection" runat="server" Text="Connection" OnClick="btnConnection_Click" /></td>
         </tr>
     </table>
 </asp:Content>
