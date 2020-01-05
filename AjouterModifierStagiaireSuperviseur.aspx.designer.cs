@@ -31,6 +31,24 @@ namespace TP2 {
         protected global::System.Web.UI.WebControls.TextBox txtNom;
         
         /// <summary>
+        /// rfvNom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNom;
+        
+        /// <summary>
+        /// regexNom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexNom;
+        
+        /// <summary>
         /// lblTelephone control.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,24 @@ namespace TP2 {
         protected global::System.Web.UI.WebControls.TextBox txtTelephone;
         
         /// <summary>
+        /// rfvTelephone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelephone;
+        
+        /// <summary>
+        /// revTelephone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revTelephone;
+        
+        /// <summary>
         /// lblCourriel control.
         /// </summary>
         /// <remarks>
@@ -65,6 +101,24 @@ namespace TP2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCourriel;
+        
+        /// <summary>
+        /// rfvCourriel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCourriel;
+        
+        /// <summary>
+        /// revCourriel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revCourriel;
         
         /// <summary>
         /// btnQuitter control.

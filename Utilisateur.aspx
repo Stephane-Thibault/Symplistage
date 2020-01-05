@@ -13,14 +13,14 @@
                 </asp:DropDownList></td>
         </tr>
         <tr>
-            <td><asp:Button ID="btnModifierStages" runat="server" Text="modifier les détails" /></td>
+            <td><asp:Button ID="btnModifierStages" runat="server" Text="Modifier les détails" Width="124px" /></td>
             <td><asp:DropDownList ID="ddlStagiaires" runat="server">
                 <asp:ListItem>Stage</asp:ListItem>
                 <asp:ListItem>Superviseur</asp:ListItem>
                 </asp:DropDownList></td>
         </tr>
         <tr>
-            <td><asp:Button ID="btnLister" runat="server" Text="Lister les informations" /></td>
+            <td><asp:Button ID="btnLister" runat="server" Text="Lister les informations" Width="141px" /></td>
             <td><asp:DropDownList ID="ddl" runat="server">
                 <asp:ListItem>Stagiaires</asp:ListItem>
                 <asp:ListItem>Superviseurs</asp:ListItem>

@@ -40,15 +40,11 @@ namespace TP2
 
                 if (txtId.Text == nouveauStagiaire.MotDePasse)
                 {
-                    
+                    //Magic happens here.
                 }
 
                 Response.Redirect("ListerStages.aspx");
             }
-
-
-
-
 
             else if (ddlGrade.Text == "Superviseur")
             {
@@ -63,7 +59,6 @@ namespace TP2
 
                 Response.Redirect("Utilisateur.aspx");
             }
-            
         }
     }
 }
