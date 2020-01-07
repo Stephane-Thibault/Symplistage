@@ -59,6 +59,17 @@ namespace TP2
             {
                 Superviseur nouveauSuperviseur = new Superviseur();
 
+                try
+                {
+                    nouveauSuperviseur = bd.GetSuperviseur(Convert.ToInt32(txtId.Text));
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw new ArgumentException("L'identifiant entré n'existe pas.");
+                }
+
                 Response.Redirect("Utilisateur.aspx");
             }
 

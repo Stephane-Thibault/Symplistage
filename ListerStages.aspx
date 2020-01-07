@@ -129,7 +129,7 @@
             <td><asp:Button ID="btnModifier" runat="server" Text="Modifier" /></td>
             <td><asp:Button ID="btnAjouter" runat="server" Text="Ajouter" /></td>
             <td></td>
-            <td><asp:Button ID="btnQuitter" runat="server" Text="Quitter" /></td>
+            <td><asp:Button ID="btnQuitter" runat="server" Text="Quitter" OnClick="btnQuitter_Click" /></td>
         </tr>
     </table>
 </asp:Content>
