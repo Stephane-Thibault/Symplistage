@@ -63,7 +63,33 @@ namespace TP2
 
             else
             {
-                Administrateur nouveauAdministrateur = new Administrateur();
+                Administrateur administrateur = new Administrateur();
+
+                try
+                {
+
+                    administrateur = bd.GetAdministrateur();
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw new ArgumentException("L'identifiant entré n'est pas valide.");
+                }
+
+                try
+                {
+                    if (txtMotPasse.Text == administrateur.MotDePasse)
+                    {
+                        Response.Redirect("Utilisateur.aspx"); 
+                    }
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw new ArgumentException("L'identifiant entré n'est pas valide.");
+                }
 
                 Response.Redirect("Utilisateur.aspx");
             }
