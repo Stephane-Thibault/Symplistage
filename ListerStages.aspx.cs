@@ -11,6 +11,20 @@ namespace TP2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Stagiaire stagiaireActuel = Session["stagiaireActuel"] as Stagiaire;
+
+            ListView1. = new ListView();
+
+            ListView1.ID.Add(stagiaireActuel.Id);
+
+            foreach (Object stages in ListView1.Items)
+            {
+                ListView1.
+            }
+        }
+
+        protected void btnQuitter_Click(object sender, EventArgs e)
+        {
 
         }
     }

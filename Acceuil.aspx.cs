@@ -43,6 +43,7 @@ namespace TP2
                 {
                     if (txtMotPasse.Text == nouveauStagiaire.MotDePasse)
                         {
+                            Session.Add("stagiaireActuel", nouveauStagiaire);
                             Response.Redirect("ListerStages.aspx");
                         }
                 }
@@ -57,6 +58,17 @@ namespace TP2
             else if (ddlGrade.Text == "Superviseur")
             {
                 Superviseur nouveauSuperviseur = new Superviseur();
+
+                try
+                {
+                    nouveauSuperviseur = bd.GetSuperviseur(Convert.ToInt32(txtId.Text));
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw new ArgumentException("L'identifiant entré n'existe pas.");
+                }
 
                 Response.Redirect("Utilisateur.aspx");
             }
