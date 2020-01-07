@@ -11,6 +11,9 @@ namespace TP2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Stagiaire stagiaireActuel = Session["stagiaireActuel"] as Stagiaire;
+            //Stagiaire stagiaireActuel = (Stagiaire)Session["stagiaireActuel"];
+
 
         }
     }
