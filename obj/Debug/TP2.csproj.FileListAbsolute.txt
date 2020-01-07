@@ -14,3 +14,10 @@ C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.csprojAsse
 C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.csproj.CoreCompileInputs.cache
 C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.dll
 C:\Users\zeios\Desktop\ProgGestion\TP2\TP2_Modele_-_H19\obj\Debug\TP2.pdb
+C:\Users\the85\source\repos\Symplistage\bin\TP2.dll.config
+C:\Users\the85\source\repos\Symplistage\bin\TP2.dll
+C:\Users\the85\source\repos\Symplistage\bin\TP2.pdb
+C:\Users\the85\source\repos\Symplistage\obj\Debug\TP2.csprojAssemblyReference.cache
+C:\Users\the85\source\repos\Symplistage\obj\Debug\TP2.csproj.CoreCompileInputs.cache
+C:\Users\the85\source\repos\Symplistage\obj\Debug\TP2.dll
+C:\Users\the85\source\repos\Symplistage\obj\Debug\TP2.pdb
