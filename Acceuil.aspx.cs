@@ -18,7 +18,7 @@ namespace TP2
 
         protected void btnConnection_Click(object sender, EventArgs e)
         {
-
+            RedirigerUtilisateur();
         }
 
         private void RedirigerUtilisateur()
@@ -30,20 +30,28 @@ namespace TP2
 
                 try
                 {
-                    bd.GetStagiaire(Convert.ToInt32(txtId.Text));
+                    nouveauStagiaire = bd.GetStagiaire(Convert.ToInt32(txtId.Text));
                 }
+
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
                     throw new ArgumentException("L'identifiant entré n'existe pas.");
                 }
 
-                if (txtId.Text == nouveauStagiaire.MotDePasse)
+                try
                 {
-                    //Magic happens here.
+                    if (txtMotPasse.Text == nouveauStagiaire.MotDePasse)
+                        {
+                            Response.Redirect("ListerStages.aspx");
+                        }
                 }
 
-                Response.Redirect("ListerStages.aspx");
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw new ArgumentException("L'identifiant entré n'existe pas.");
+                }
             }
 
             else if (ddlGrade.Text == "Superviseur")
