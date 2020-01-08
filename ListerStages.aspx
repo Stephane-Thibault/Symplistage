@@ -4,23 +4,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-    <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="TP2.GestionStagesDataContext" EntityTypeName="" Select="new (Titre, Début, Fin, Commentaire)" TableName="Stages">
+    <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="TP2.GestionStagesDataContext" EntityTypeName="" Select="new (Titre, Début, Fin, Commentaire)" TableName="Stages" OrderBy="StagiaireId" Where="Id == @Id">
+        <WhereParameters>
+            <asp:SessionParameter Name="Id" DefaultValue="1" SessionField="stagiaire" Type="Int32" />
+        </WhereParameters>
     </asp:LinqDataSource>
     <asp:ListView ID="ListView1" runat="server" DataSourceID="LinqDataSource1">
         <AlternatingItemTemplate>
             <tr style="background-color:#FFF8DC;">
-                <td>
-                    <asp:Label ID="TitreLabel" runat="server" Text='<%# Eval("Titre") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="DébutLabel" runat="server" Text='<%# Eval("Début") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="FinLabel" runat="server" Text='<%# Eval("Fin") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="CommentaireLabel" runat="server" Text='<%# Eval("Commentaire") %>' />
-                </td>
+                <td><asp:Label ID="TitreLabel" runat="server" Text='<%# Eval("Titre") %>' /></td>
+                <td><asp:Label ID="DébutLabel" runat="server" Text='<%# Eval("Début") %>' /></td>
+                <td><asp:Label ID="FinLabel" runat="server" Text='<%# Eval("Fin") %>' /></td>
+                <td><asp:Label ID="CommentaireLabel" runat="server" Text='<%# Eval("Commentaire") %>' /></td>
             </tr>
         </AlternatingItemTemplate>
         <EditItemTemplate>
@@ -29,18 +24,10 @@
                     <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
                 </td>
-                <td>
-                    <asp:TextBox ID="TitreTextBox" runat="server" Text='<%# Bind("Titre") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="DébutTextBox" runat="server" Text='<%# Bind("Début") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="FinTextBox" runat="server" Text='<%# Bind("Fin") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="CommentaireTextBox" runat="server" Text='<%# Bind("Commentaire") %>' />
-                </td>
+                <td><asp:TextBox ID="TitreTextBox" runat="server" Text='<%# Bind("Titre") %>' /></td>
+                <td><asp:TextBox ID="DébutTextBox" runat="server" Text='<%# Bind("Début") %>' /></td>
+                <td><asp:TextBox ID="FinTextBox" runat="server" Text='<%# Bind("Fin") %>' /></td>
+                <td><asp:TextBox ID="CommentaireTextBox" runat="server" Text='<%# Bind("Commentaire") %>' /></td>
             </tr>
         </EditItemTemplate>
         <EmptyDataTemplate>
@@ -56,34 +43,18 @@
                     <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
                 </td>
-                <td>
-                    <asp:TextBox ID="TitreTextBox" runat="server" Text='<%# Bind("Titre") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="DébutTextBox" runat="server" Text='<%# Bind("Début") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="FinTextBox" runat="server" Text='<%# Bind("Fin") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="CommentaireTextBox" runat="server" Text='<%# Bind("Commentaire") %>' />
-                </td>
+                <td><asp:TextBox ID="TitreTextBox" runat="server" Text='<%# Bind("Titre") %>' /></td>
+                <td><asp:TextBox ID="DébutTextBox" runat="server" Text='<%# Bind("Début") %>' /></td>
+                <td><asp:TextBox ID="FinTextBox" runat="server" Text='<%# Bind("Fin") %>' /></td>
+                <td><asp:TextBox ID="CommentaireTextBox" runat="server" Text='<%# Bind("Commentaire") %>' /></td>
             </tr>
         </InsertItemTemplate>
         <ItemTemplate>
             <tr style="background-color:#DCDCDC;color: #000000;">
-                <td>
-                    <asp:Label ID="TitreLabel" runat="server" Text='<%# Eval("Titre") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="DébutLabel" runat="server" Text='<%# Eval("Début") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="FinLabel" runat="server" Text='<%# Eval("Fin") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="CommentaireLabel" runat="server" Text='<%# Eval("Commentaire") %>' />
-                </td>
+                <td><asp:Label ID="TitreLabel" runat="server" Text='<%# Eval("Titre") %>' /></td>
+                <td><asp:Label ID="DébutLabel" runat="server" Text='<%# Eval("Début") %>' /></td>
+                <td><asp:Label ID="FinLabel" runat="server" Text='<%# Eval("Fin") %>' /></td>
+                <td><asp:Label ID="CommentaireLabel" runat="server" Text='<%# Eval("Commentaire") %>' /></td>
             </tr>
         </ItemTemplate>
         <LayoutTemplate>
@@ -109,18 +80,10 @@
         </LayoutTemplate>
         <SelectedItemTemplate>
             <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
-                <td>
-                    <asp:Label ID="TitreLabel" runat="server" Text='<%# Eval("Titre") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="DébutLabel" runat="server" Text='<%# Eval("Début") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="FinLabel" runat="server" Text='<%# Eval("Fin") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="CommentaireLabel" runat="server" Text='<%# Eval("Commentaire") %>' />
-                </td>
+                <td><asp:Label ID="TitreLabel" runat="server" Text='<%# Eval("Titre") %>' /></td>
+                <td><asp:Label ID="DébutLabel" runat="server" Text='<%# Eval("Début") %>' /></td>
+                <td><asp:Label ID="FinLabel" runat="server" Text='<%# Eval("Fin") %>' /></td>
+                <td><asp:Label ID="CommentaireLabel" runat="server" Text='<%# Eval("Commentaire") %>' /></td>
             </tr>
         </SelectedItemTemplate>
     </asp:ListView>

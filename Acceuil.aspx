@@ -15,12 +15,7 @@
         <tr>
             <td><asp:Label ID="lblId" runat="server" Text="Identifiant : "></asp:Label></td>
             <td><asp:TextBox ID="txtId" runat="server"></asp:TextBox></td>
-<<<<<<< HEAD
-<%--            <td><asp:RequiredFieldValidator ID="rfID" ControlToValidate="txtId" runat="server" ErrorMessage="Le champ ne peut pas être laissé vide."></asp:RequiredFieldValidator></td>--%>
             <td><asp:RegularExpressionValidator ControlToValidate="txtId" ID="regexValidatorID" runat="server" ErrorMessage="L'identifiant ne peut être composé que de chiffres." ValidationExpression="[0-9]+"></asp:RegularExpressionValidator></td>
-=======
-            <td><asp:RegularExpressionValidator ControlToValidate="txtId" ID="regexValidatorID" runat="server" ErrorMessage="L'identifiant nepeut être composé que de chiffres." ValidationExpression="[0-9]+"></asp:RegularExpressionValidator></td>
->>>>>>> 1b9b40845ca4e1764346e6aeeabbb9e5018a3130
         </tr>
         <tr>
             <td style="height: 26px"><asp:Label ID="lblMotPasse" runat="server" Text="Mot de passe : "></asp:Label></td>
