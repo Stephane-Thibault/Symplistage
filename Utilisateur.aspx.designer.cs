@@ -31,49 +31,13 @@ namespace TP2 {
         protected global::System.Web.UI.WebControls.DropDownList ddlAjouter;
         
         /// <summary>
-        /// SqlDDSStages control.
+        /// btnAjouterContinuer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDDSStages;
-        
-        /// <summary>
-        /// GridAjouterStage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridAjouterStage;
-        
-        /// <summary>
-        /// SqlDDSStagiaires control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDDSStagiaires;
-        
-        /// <summary>
-        /// GridAjouterSuperviseur control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridAjouterSuperviseur;
-        
-        /// <summary>
-        /// SqlDDSSuperviseurs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDDSSuperviseurs;
+        protected global::System.Web.UI.WebControls.Button btnAjouterContinuer;
         
         /// <summary>
         /// btnModifier control.
@@ -119,6 +83,15 @@ namespace TP2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridModifierSuperviseur;
+        
+        /// <summary>
+        /// btnModifierContinuer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModifierContinuer;
         
         /// <summary>
         /// btnLister control.

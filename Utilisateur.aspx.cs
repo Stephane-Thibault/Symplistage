@@ -38,6 +38,9 @@ namespace TP2
         private void AjouterUtilisateurs()
         {
             ddlAjouter.Visible = true;
+            btnAjouterContinuer.Visible = true;
+            btnModifierContinuer.Visible = false;
+            btnListerContinuer.Visible = false;
         }
 
         private void ModifierUtilisateurs()
@@ -83,8 +86,6 @@ namespace TP2
             ddlAjouter.Visible = false;
             ddlModifier.Visible = false;
             ddlListerInformations.Visible = false;
-            GridAjouterStage.Visible = false;
-            GridAjouterSuperviseur.Visible = false;
             GridModifierStagiaire.Visible = false;
             GridModifierSuperviseur.Visible = false;
             btnListerContinuer.Visible = false;
@@ -110,7 +111,7 @@ namespace TP2
 
             if (ddlAjouter.Text == "Stage")
             {
-                GridAjouterStage.Visible = true;
+                //GridAjouterStage.Visible = true;
 
 
             }

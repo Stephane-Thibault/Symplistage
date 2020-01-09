@@ -41,22 +41,14 @@ namespace TP2
                     throw new ArgumentException("L'identifiant entré n'existe pas.");
                 }
 
-                try
+                if (txtMotPasse.Text == nouveauStagiaire.MotDePasse)
                 {
-                    if (txtMotPasse.Text == nouveauStagiaire.MotDePasse)
-                        {
-                            
-                            Session.Add("stagiaireActuel", nouveauStagiaire);
-                            Session.Add("identifiantDuStagiaire", nouveauStagiaire.Id);
-                            Response.Redirect("ListerStages.aspx");
-                        }
+                    
+                    Session.Add("stagiaireActuel", nouveauStagiaire);
+                    Session.Add("identifiantDuStagiaire", nouveauStagiaire.Id);
+                    Response.Redirect("ListerStages.aspx");
                 }
 
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw new ArgumentException("L'identifiant entré n'existe pas.");
-                }
             }
 
             else if (ddlGrade.Text == "Superviseur")
@@ -74,7 +66,11 @@ namespace TP2
                     throw new ArgumentException("L'identifiant entré n'existe pas.");
                 }
 
-                Response.Redirect("Utilisateur.aspx");
+                if(txtMotPasse.Text == nouveauSuperviseur.MotDePasse)
+                {
+                    Session.Add("superviseurActuel", nouveauSuperviseur);
+                    Response.Redirect("Utilisateur.aspx");
+                }
             }
 
             else
@@ -93,21 +89,12 @@ namespace TP2
                     throw new ArgumentException("L'identifiant entré n'est pas valide.");
                 }
 
-                try
+                if (txtMotPasse.Text == administrateur.MotDePasse)
                 {
-                    if (txtMotPasse.Text == administrateur.MotDePasse)
-                    {
-                        Response.Redirect("Utilisateur.aspx"); 
-                    }
+                    Session.Add("administrateurActuel", administrateur);
+                    Response.Redirect("Utilisateur.aspx"); 
                 }
 
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw new ArgumentException("L'identifiant entré n'est pas valide.");
-                }
-
-                Response.Redirect("Utilisateur.aspx");
             }
         }
     }

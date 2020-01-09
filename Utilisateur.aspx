@@ -12,23 +12,9 @@
                     <asp:ListItem>Stagiaire</asp:ListItem>
                     <asp:ListItem>Superviseur</asp:ListItem>
                 </asp:DropDownList></td>
-            <td>
-                <asp:SqlDataSource ID="SqlDDSStages" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Titre], [Début], [Fin], [Commentaire] FROM [Stage]"></asp:SqlDataSource>
-                <asp:GridView ID="GridAjouterStage" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDDSStagiaires" Visible="False">
-                    <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
-                        <asp:BoundField DataField="Nom" HeaderText="Nom" SortExpression="Nom" />
-                    </Columns>
-                </asp:GridView>
-                <asp:SqlDataSource ID="SqlDDSStagiaires" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Nom] FROM [Stagiaire]"></asp:SqlDataSource>
-                <asp:GridView ID="GridAjouterSuperviseur" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDDSSuperviseurs" Visible="False">
-                    <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
-                        <asp:BoundField DataField="Nom" HeaderText="Nom" SortExpression="Nom" />
-                    </Columns>
-                </asp:GridView>
-                <asp:SqlDataSource ID="SqlDDSSuperviseurs" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Nom] FROM [Superviseur]"></asp:SqlDataSource>
-            </td>
+            <td></td>
+            <td><asp:Button ID="btnAjouterContinuer" runat="server" Text="Continuer" Visible="False" /></td>
+            
         </tr>
         <tr>
             <td><asp:Button ID="btnModifier" runat="server" Text="Modifier les détails des utilisateurs" OnClick="btnModifierStages_Click" UseSubmitBehavior="False" /></td>
@@ -51,6 +37,7 @@
                     </Columns>
                 </asp:GridView>
             </td>
+            <td><asp:Button ID="btnModifierContinuer" runat="server" Text="Continuer" Visible="False" /></td>
         </tr>
         <tr>
             <td><asp:Button ID="btnLister" runat="server" Text="Lister les infos des utilisateurs ou stages" Width="259px" OnClick="btnLister_Click" UseSubmitBehavior="False" /></td>
