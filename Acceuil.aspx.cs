@@ -78,7 +78,6 @@ namespace TP2
 
                 try
                 {
-
                     administrateur = bd.GetAdministrateur();
                 }
 
@@ -93,7 +92,6 @@ namespace TP2
                     Session.Add("administrateurActuel", administrateur);
                     Response.Redirect("Utilisateur.aspx"); 
                 }
-
             }
         }
     }

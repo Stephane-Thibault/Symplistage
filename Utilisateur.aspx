@@ -13,8 +13,7 @@
                     <asp:ListItem>Superviseur</asp:ListItem>
                 </asp:DropDownList></td>
             <td></td>
-            <td><asp:Button ID="btnAjouterContinuer" runat="server" Text="Continuer" Visible="False" /></td>
-            
+            <td><asp:Button ID="btnAjouterContinuer" runat="server" Text="Continuer" Visible="False" /></td>            
         </tr>
         <tr>
             <td style="width: 305px"><asp:Button ID="btnModifier" runat="server" Text="Modifier les détails des utilisateurs" OnClick="btnModifierStages_Click" UseSubmitBehavior="False" /></td>
@@ -45,6 +44,7 @@
             <td><asp:DropDownList ID="ddlListerStageOuStagiaires" runat="server" Visible="False">
                 <asp:ListItem>Stages</asp:ListItem>
                 <asp:ListItem>Stagiaires</asp:ListItem>
+                <asp:ListItem>Superviseurs</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td>

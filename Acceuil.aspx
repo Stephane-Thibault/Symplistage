@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td style="height: 26px; width: 95px;"><asp:Label ID="lblMotPasse" runat="server" Text="Mot de passe : "></asp:Label></td>
-            <td style="height: 26px"><asp:TextBox ID="txtMotPasse" runat="server"></asp:TextBox></td>
+            <td style="height: 26px"><asp:TextBox ID="txtMotPasse" runat="server" TextMode="Password"></asp:TextBox></td>
             <td><asp:RequiredFieldValidator ID="rfvMotPasse" ControlToValidate="txtMotPasse" runat="server" ErrorMessage="Le champ ne peut pas
                 être laissé vide."></asp:RequiredFieldValidator></td>
         </tr>

@@ -17,12 +17,24 @@ namespace TP2
 
         protected void btnQuitter_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Acceuil.aspx");
+            Quitter();
         }
 
         private void AffichageDesDonnees()
         {
             Stagiaire stagiaireActuel = Session["stagiaireActuel"] as Stagiaire;
+        }
+
+        private void Quitter()
+        {
+            if (Session["gradeUtilisateurEnCours"] == "Superviseur")
+            {
+                Response.Redirect("Utilisateur.aspx");
+            }
+            else
+            {
+                Response.Redirect("Acceuil.aspx");
+            }
         }
     }
 }

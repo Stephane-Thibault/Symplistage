@@ -13,7 +13,7 @@ namespace TP2
         protected void Page_Load(object sender, EventArgs e)
         {
             //test à effacer plus tard
-            Session["gradeUtilisateurEnCours"] = "Superviseur";
+//            Session["gradeUtilisateurEnCours"] = "Superviseur";
 
             //Important ça reste là
             InterfaceFurtive();
@@ -81,14 +81,32 @@ namespace TP2
         {
             if (Session["gradeUtilisateurEnCours"] == "Superviseur")
             {
-                if (ddlListerStageOuStagiaires.SelectedValue == "Stagiaires")
+                if (ddlListerStageOuStagiaires.SelectedValue == "Stages")
                 {
                     GridListerStagiaires.Visible = true;
                 }
-                else
+                else if(ddlListerStageOuStagiaires.SelectedValue == "Stagiaires")
                 {
                     Session.Add("ListerUtilisateur", "stagiaire");
                     Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+                }
+            }
+
+            else
+            {
+                if (ddlListerStageOuStagiaires.SelectedValue == "Stagiaires")
+                {
+                    Session.Add("ListerUtilisateur", "stagiaire");
+                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+                }
+                else if(ddlListerStageOuStagiaires.SelectedValue == "Superviseurs")
+                {
+                    Session.Add("ListerUtilisateur", "superviseur");
+                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+                }
+                else
+                {
+                    Console.WriteLine("Vous n'ètes pas authorisé à accéder à ce contenu.");
                 }
             }
         }
@@ -104,31 +122,15 @@ namespace TP2
 
         private void AfficherDdlLister()
         {
-            if (Session["gradeUtilisateurEnCours"] == "Administrateur")
-            {
-                Session.Add("ListerUtilisateur", "superviseur");
-                Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
-            }
+            ddlListerStageOuStagiaires.Visible = true;
+            btnListerContinuer.Visible = true;
 
-            else
-            {
-                ddlListerStageOuStagiaires.Visible = true;
-                btnListerContinuer.Visible = true;
-            }
-        }
+//            if (Session["gradeUtilisateurEnCours"] == "Administrateur")
+//            {
+//                Session.Add("ListerUtilisateur", "superviseur");
+//                Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+//            }
 
-
-
-
-        private void InterfaceFurtive()
-        {
-            ddlAjouter.Visible = false;
-            ddlModifier.Visible = false;
-            ddlListerStageOuStagiaires.Visible = false;
-            GridModifierStagiaire.Visible = false;
-            GridModifierSuperviseur.Visible = false;
-            GridListerStagiaires.Visible = false;
-            btnListerContinuer.Visible = false;
         }
 
         protected void GridListerStagiaires_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,6 +147,17 @@ namespace TP2
                     Response.Redirect("ListerStages.aspx");
                 }
             }
+        }
+
+        private void InterfaceFurtive()
+        {
+            ddlAjouter.Visible = false;
+            ddlModifier.Visible = false;
+            ddlListerStageOuStagiaires.Visible = false;
+            GridModifierStagiaire.Visible = false;
+            GridModifierSuperviseur.Visible = false;
+            GridListerStagiaires.Visible = false;
+            btnListerContinuer.Visible = false;
         }
     }
 }

@@ -27,7 +27,7 @@ namespace TP2
                 GridStagiaires.Visible = true;
             }
 
-            else
+            else if(Session["ListerUtilisateur"] == "superviseur")
             {
                 GridSuperviseur.Visible = true;
                 GridStagiaires.Visible = false;
