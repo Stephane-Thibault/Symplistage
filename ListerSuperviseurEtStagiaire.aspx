@@ -41,7 +41,5 @@
         <SortedDescendingHeaderStyle BackColor="#15524A" />
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDDSSuperviseur" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Nom], [Courriel], [Téléphone] FROM [Superviseur]"></asp:SqlDataSource>
-    <%-- <asp:Button ID="btnAfficherSagiaires" runat="server" Text="Afficher stagiaires" OnClick="btnAfficherSagiaires_Click" /> --%>
-    <%-- <asp:Button ID="btnAfficherSuperviseur" runat="server" Text="Afficher superviseurs" OnClick="btnAfficherSuperviseur_Click" /> --%>
     <asp:Button ID="btnQuitter" runat="server" Text="Retour" OnClick="btnQuitter_Click" />
     </asp:Content>

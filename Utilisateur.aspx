@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
         <tr>
-            <td><asp:Button ID="btnAjouter" runat="server" Text="Créer un nouvel utilisateur ou stage" OnClick="btnAjouter_Click" /></td>
+            <td><asp:Button ID="btnAjouter" runat="server" Text="Créer un nouvel utilisateur ou stage" OnClick="btnAjouter_Click" UseSubmitBehavior="False" /></td>
             <td>
                 <asp:DropDownList ID="ddlAjouter" runat="server" Visible="False">
                     <asp:ListItem>Stage</asp:ListItem>
@@ -14,7 +14,7 @@
                 </asp:DropDownList></td>
             <td>
                 <asp:SqlDataSource ID="SqlDDSStages" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Titre], [Début], [Fin], [Commentaire] FROM [Stage]"></asp:SqlDataSource>
-                <asp:GridView ID="GridAjouterStage" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDDSStagiaires" OnSelectedIndexChanged="GridStagiaire_SelectedIndexChanged" Visible="False">
+                <asp:GridView ID="GridAjouterStage" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDDSStagiaires" Visible="False">
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" />
                         <asp:BoundField DataField="Nom" HeaderText="Nom" SortExpression="Nom" />
@@ -31,7 +31,7 @@
             </td>
         </tr>
         <tr>
-            <td><asp:Button ID="btnModifier" runat="server" Text="Modifier les détails des utilisateurs" OnClick="btnModifierStages_Click" /></td>
+            <td><asp:Button ID="btnModifier" runat="server" Text="Modifier les détails des utilisateurs" OnClick="btnModifierStages_Click" UseSubmitBehavior="False" /></td>
             <td><asp:DropDownList ID="ddlModifier" runat="server" Visible="False">
                 <asp:ListItem>Stagiaire</asp:ListItem>
                 <asp:ListItem>Superviseur</asp:ListItem>
@@ -53,7 +53,7 @@
             </td>
         </tr>
         <tr>
-            <td><asp:Button ID="btnLister" runat="server" Text="Lister les infos des utilisateurs ou stages" Width="259px" OnClick="btnLister_Click" /></td>
+            <td><asp:Button ID="btnLister" runat="server" Text="Lister les infos des utilisateurs ou stages" Width="259px" OnClick="btnLister_Click" UseSubmitBehavior="False" /></td>
             <td><asp:DropDownList ID="ddlListerInformations" runat="server" Visible="False">
                 <asp:ListItem>Stagiaire</asp:ListItem>
                 <asp:ListItem>Superviseur</asp:ListItem>
@@ -75,7 +75,7 @@
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Nom] FROM [Superviseur]"></asp:SqlDataSource>
             </td>
-            <td><asp:Button ID="btnListerUtilisateur" runat="server" Text="Continuer" /></td>
+            <td><asp:Button ID="btnListerContinuer" runat="server" Text="Continuer" Visible="False" OnClick="btnListerContinuer_Click" /></td>
         </tr>
         <tr>
             <td></td>

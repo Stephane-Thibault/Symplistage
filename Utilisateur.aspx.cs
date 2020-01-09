@@ -12,90 +12,58 @@ namespace TP2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            InterfaceFurtive();
         }
 
         protected void btnAjouter_Click(object sender, EventArgs e)
         {
-            DécouvrirOptions();
+            AjouterUtilisateurs();
         }
 
         protected void btnModifierStages_Click(object sender, EventArgs e)
         {
-            DécouvrirOptions();
+            ModifierUtilisateurs();
         }
 
         protected void btnLister_Click(object sender, EventArgs e)
         {
-            DécouvrirOptions();
+            ListerUtilisateursApparaitre();
         }
 
-        protected void btnListerUtilisateur_Click(object sender, EventArgs e)
+        protected void btnListerContinuer_Click(object sender, EventArgs e)
         {
-            ListerUtilisateur();
+            ListerUtilisateurs();
         }
 
-        private void RedirigerUtilisateur()
+        private void AjouterUtilisateurs()
         {
-
-            if (ddlAjouter.Text == "Stage")
-            {
-                GridAjouterStage.Visible = true;
-
-                
-            }
-
-            else if (ddlModifier.Text == "Stage")
-            {
-                
-            }
-
-            else if (ddlAjouter.Text == "Stagiaire" || ddlModifier.Text == "Stagiaire" || ddlListerInformations.Text == "Stagiaire")
-            {
-
-            }
-
-            else
-            {
-                
-            }
+            ddlAjouter.Visible = true;
         }
 
-        protected void GridStagiaire_SelectedIndexChanged(object sender, EventArgs e)
+        private void ModifierUtilisateurs()
         {
+            ddlModifier.Visible = true;
 
+            if (ddlModifier.CausesValidation == true)
+            {
+                if (ddlListerInformations.Text == "Stagiaire")
+                {
+                    GridModifierStagiaire.Visible = true;
+                }
+                else
+                {
+                    GridModifierSuperviseur.Visible = true;
+                }
+            }
         }
 
-        private void DécouvrirOptions()
+        private void ListerUtilisateursApparaitre()
         {
-            ddlAjouter.Visible = false;
-            ddlModifier.Visible = false;
-            ddlListerInformations.Visible = false;
-            GridAjouterStage.Visible = false;
-            GridAjouterSuperviseur.Visible = false;
-            GridModifierStagiaire.Visible = false;
-            GridModifierSuperviseur.Visible = false;
-//            GridListerStagiaires.Visible = false;
-//            GridListerSuperviseurs.Visible = false;
-
-
-            if (btnAjouter.CausesValidation == true)
-            {
-                ddlAjouter.Visible = true;
-            }
-
-            else if (btnModifier.CausesValidation == true)
-            {
-                ddlModifier.Visible = true;
-            }
-
-            else
-            {
-                ddlListerInformations.Visible = true;
-            }
+            ddlListerInformations.Visible = true;
+            btnListerContinuer.Visible = true;
         }
-
-        private void ListerUtilisateur()
+        
+        private void ListerUtilisateurs()
         {
             if (ddlListerInformations.Text == "Stagiaire")
             {
@@ -107,6 +75,59 @@ namespace TP2
             {
                 Session.Add("ListerUtilisateur", "superviseur");
                 Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+            }
+        }
+
+        private void InterfaceFurtive()
+        {
+            ddlAjouter.Visible = false;
+            ddlModifier.Visible = false;
+            ddlListerInformations.Visible = false;
+            GridAjouterStage.Visible = false;
+            GridAjouterSuperviseur.Visible = false;
+            GridModifierStagiaire.Visible = false;
+            GridModifierSuperviseur.Visible = false;
+            btnListerContinuer.Visible = false;
+        }
+
+        private void VerifierGrade()
+        {
+            if (Session["gradeUtilisateurEnCours"] == "Superviseur")
+            {
+                //Retirer le choix superviseur de ddlListerInformations pour pas que l'utilisateur y ait accès.
+
+            }
+
+            else
+            {
+                //Retirer le choix stagiaire de ddlListerInformations pour pas que l'utilisateur y ait accès.
+            }
+        }
+
+        //PAS ENCORE TERMINÉE
+        private void RedirigerUtilisateur()
+        {
+
+            if (ddlAjouter.Text == "Stage")
+            {
+                GridAjouterStage.Visible = true;
+
+
+            }
+
+            else if (ddlModifier.Text == "Stage")
+            {
+
+            }
+
+            else if (ddlAjouter.Text == "Stagiaire" || ddlModifier.Text == "Stagiaire" || ddlListerInformations.Text == "Stagiaire")
+            {
+
+            }
+
+            else
+            {
+
             }
         }
     }
