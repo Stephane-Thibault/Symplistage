@@ -10,22 +10,40 @@ namespace TP2
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            BDGestionStages bd = new BDGestionStages();
+        protected void Page_Load(object sender, EventArgs e){
 
             Stagiaire stagiaireActuel = Session["stagiaireActuel"] as Stagiaire;
-            
 
-//            ListView1.GetDefaultValues("id", LinqDataSource1 as object);
-//            LinqDataSource1.InsertParameters[0].DefaultValue = StateItems[Session["stagiaireActuel"]].ToString;
-//                WhereParameters.UpdateValues(DefaultValue, "1");
-
+            VerificationUtilisateur();
         }
 
         protected void btnQuitter_Click(object sender, EventArgs e)
         {
-            
+            Response.Redirect("Acceuil.aspx");
+        }
+
+        protected void btnAjouter_Click(object sender, EventArgs e)
+        {
+            AjouterUnStage();
+        }
+
+        private void VerificationUtilisateur()
+        {
+            if (Session["gradeUtilisateurEnCours"] == "Superviseur")
+            {
+                btnAjouter.Enabled = true;
+                btnModifier.Enabled = true;
+            }
+            else
+            {
+                btnAjouter.Enabled = false;
+                btnModifier.Enabled = false;
+            }
+        }
+
+        private void AjouterUnStage()
+        {
+
         }
     }
 }

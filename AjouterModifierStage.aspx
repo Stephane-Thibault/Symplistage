@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><asp:Button ID="btnQuitter" runat="server" Text="Quitter" /></td>
+            <td><asp:Button ID="btnQuitter" runat="server" Text="Retour" OnClick="btnQuitter_Click" /></td>
         </tr>
     </table>
 </asp:Content>

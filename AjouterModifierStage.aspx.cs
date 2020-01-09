@@ -13,5 +13,19 @@ namespace TP2
         {
 
         }
+
+        protected void btnQuitter_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Utilisateur.aspx");
+        }
+
+        private void AjouterUnStage()
+        {
+            
+//            if (Session[""])
+//            {
+//                
+//            }
+        }
     }
 }

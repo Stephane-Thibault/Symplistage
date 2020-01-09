@@ -3,225 +3,45 @@
     <h2>Lister les superviseurs ou les stagiaires</h2>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table>
-        <tr>
-            <td>
-                <asp:ListView ID="lvStagiaires" runat="server" DataSourceID="LinqDataSource2">
-                    <AlternatingItemTemplate>
-                        <tr style="background-color:#FFF8DC;">
-                            <td>
-                                <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="TéléphoneLabel" runat="server" Text='<%# Eval("Téléphone") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="CourrielLabel" runat="server" Text='<%# Eval("Courriel") %>' />
-                            </td>
-                        </tr>
-                    </AlternatingItemTemplate>
-                    <EditItemTemplate>
-                        <tr style="background-color:#008A8C;color: #FFFFFF;">
-                            <td>
-                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="NomTextBox" runat="server" Text='<%# Bind("Nom") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TéléphoneTextBox" runat="server" Text='<%# Bind("Téléphone") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="CourrielTextBox" runat="server" Text='<%# Bind("Courriel") %>' />
-                            </td>
-                        </tr>
-                    </EditItemTemplate>
-                    <EmptyDataTemplate>
-                        <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
-                            <tr>
-                                <td>No data was returned.</td>
-                            </tr>
-                        </table>
-                    </EmptyDataTemplate>
-                    <InsertItemTemplate>
-                        <tr style="">
-                            <td>
-                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="NomTextBox" runat="server" Text='<%# Bind("Nom") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TéléphoneTextBox" runat="server" Text='<%# Bind("Téléphone") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="CourrielTextBox" runat="server" Text='<%# Bind("Courriel") %>' />
-                            </td>
-                        </tr>
-                    </InsertItemTemplate>
-                    <ItemTemplate>
-                        <tr style="background-color:#DCDCDC;color: #000000;">
-                            <td>
-                                <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="TéléphoneLabel" runat="server" Text='<%# Eval("Téléphone") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="CourrielLabel" runat="server" Text='<%# Eval("Courriel") %>' />
-                            </td>
-                        </tr>
-                    </ItemTemplate>
-                    <LayoutTemplate>
-                        <table runat="server">
-                            <tr runat="server">
-                                <td runat="server">
-                                    <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                        <tr runat="server" style="background-color:#DCDCDC;color: #000000;">
-                                            <th runat="server">Nom</th>
-                                            <th runat="server">Téléphone</th>
-                                            <th runat="server">Courriel</th>
-                                        </tr>
-                                        <tr id="itemPlaceholder" runat="server">
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr runat="server">
-                                <td runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;"></td>
-                            </tr>
-                        </table>
-                    </LayoutTemplate>
-                    <SelectedItemTemplate>
-                        <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
-                            <td>
-                                <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="TéléphoneLabel" runat="server" Text='<%# Eval("Téléphone") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="CourrielLabel" runat="server" Text='<%# Eval("Courriel") %>' />
-                            </td>
-                        </tr>
-                    </SelectedItemTemplate>
-                </asp:ListView>
-                <asp:ListView ID="lvSuperviseurs" runat="server" DataSourceID="LinqDataSource1">
-                    <AlternatingItemTemplate>
-                        <tr style="background-color:#FFF8DC;">
-                            <td>
-                                <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="TéléphoneLabel" runat="server" Text='<%# Eval("Téléphone") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="CourrielLabel" runat="server" Text='<%# Eval("Courriel") %>' />
-                            </td>
-                        </tr>
-                    </AlternatingItemTemplate>
-                    <EditItemTemplate>
-                        <tr style="background-color:#008A8C;color: #FFFFFF;">
-                            <td>
-                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="NomTextBox" runat="server" Text='<%# Bind("Nom") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TéléphoneTextBox" runat="server" Text='<%# Bind("Téléphone") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="CourrielTextBox" runat="server" Text='<%# Bind("Courriel") %>' />
-                            </td>
-                        </tr>
-                    </EditItemTemplate>
-                    <EmptyDataTemplate>
-                        <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
-                            <tr>
-                                <td>No data was returned.</td>
-                            </tr>
-                        </table>
-                    </EmptyDataTemplate>
-                    <InsertItemTemplate>
-                        <tr style="">
-                            <td>
-                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="NomTextBox" runat="server" Text='<%# Bind("Nom") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="TéléphoneTextBox" runat="server" Text='<%# Bind("Téléphone") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="CourrielTextBox" runat="server" Text='<%# Bind("Courriel") %>' />
-                            </td>
-                        </tr>
-                    </InsertItemTemplate>
-                    <ItemTemplate>
-                        <tr style="background-color:#DCDCDC;color: #000000;">
-                            <td>
-                                <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="TéléphoneLabel" runat="server" Text='<%# Eval("Téléphone") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="CourrielLabel" runat="server" Text='<%# Eval("Courriel") %>' />
-                            </td>
-                        </tr>
-                    </ItemTemplate>
-                    <LayoutTemplate>
-                        <table runat="server">
-                            <tr runat="server">
-                                <td runat="server">
-                                    <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                        <tr runat="server" style="background-color:#DCDCDC;color: #000000;">
-                                            <th runat="server">Nom</th>
-                                            <th runat="server">Téléphone</th>
-                                            <th runat="server">Courriel</th>
-                                        </tr>
-                                        <tr id="itemPlaceholder" runat="server">
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr runat="server">
-                                <td runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;"></td>
-                            </tr>
-                        </table>
-                    </LayoutTemplate>
-                    <SelectedItemTemplate>
-                        <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
-                            <td>
-                                <asp:Label ID="NomLabel" runat="server" Text='<%# Eval("Nom") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="TéléphoneLabel" runat="server" Text='<%# Eval("Téléphone") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="CourrielLabel" runat="server" Text='<%# Eval("Courriel") %>' />
-                            </td>
-                        </tr>
-                    </SelectedItemTemplate>
-                </asp:ListView>
-                <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="TP2.GestionStagesDataContext" EntityTypeName="" Select="new (Nom, Téléphone, Courriel)" TableName="Superviseurs">
-                </asp:LinqDataSource>
-                <asp:LinqDataSource ID="LinqDataSource2" runat="server" ContextTypeName="TP2.GestionStagesDataContext" EntityTypeName="" Select="new (Nom, Téléphone, Courriel)" TableName="Stagiaires">
-                </asp:LinqDataSource>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:RadioButtonList ID="RadioButtonList1" runat="server">
-                    <asp:ListItem>Stagiaires</asp:ListItem>
-                    <asp:ListItem>Superviseurs</asp:ListItem>
-                </asp:RadioButtonList></td>
-        </tr>
-    </table>
-</asp:Content>
+    <asp:SqlDataSource ID="SqlDDStagiaires" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Nom], [Téléphone], [Courriel] FROM [Stagiaire]" EnableViewState="False"></asp:SqlDataSource>
+    <asp:GridView ID="GridStagiaires" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDDStagiaires" Visible="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:BoundField DataField="Nom" HeaderText="Nom" SortExpression="Nom" />
+            <asp:BoundField DataField="Téléphone" HeaderText="Téléphone" SortExpression="Téléphone" />
+            <asp:BoundField DataField="Courriel" HeaderText="Courriel" SortExpression="Courriel" />
+        </Columns>
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+    </asp:GridView>
+    <asp:GridView ID="GridSuperviseur" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDDSSuperviseur" Visible="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:BoundField DataField="Nom" HeaderText="Nom" SortExpression="Nom" />
+            <asp:BoundField DataField="Courriel" HeaderText="Courriel" SortExpression="Courriel" />
+            <asp:BoundField DataField="Téléphone" HeaderText="Téléphone" SortExpression="Téléphone" />
+        </Columns>
+        <EditRowStyle BackColor="#7C6F57" />
+        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#E3EAEB" />
+        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F8FAFA" />
+        <SortedAscendingHeaderStyle BackColor="#246B61" />
+        <SortedDescendingCellStyle BackColor="#D4DFE1" />
+        <SortedDescendingHeaderStyle BackColor="#15524A" />
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDDSSuperviseur" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Nom], [Courriel], [Téléphone] FROM [Superviseur]"></asp:SqlDataSource>
+    <%-- <asp:Button ID="btnAfficherSagiaires" runat="server" Text="Afficher stagiaires" OnClick="btnAfficherSagiaires_Click" /> --%>
+    <%-- <asp:Button ID="btnAfficherSuperviseur" runat="server" Text="Afficher superviseurs" OnClick="btnAfficherSuperviseur_Click" /> --%>
+    <asp:Button ID="btnQuitter" runat="server" Text="Retour" OnClick="btnQuitter_Click" />
+    </asp:Content>

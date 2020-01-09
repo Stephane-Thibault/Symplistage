@@ -22,7 +22,9 @@ namespace TP2
 
         private void RedirigerUtilisateur()
         {
-            
+            Session.Clear();
+            Session["gradeUtilisateurEnCours"] = ddlGrade.Text;
+
             if (ddlGrade.Text == "Étudiant")
             {
                 Stagiaire nouveauStagiaire = new Stagiaire();
@@ -42,7 +44,9 @@ namespace TP2
                 {
                     if (txtMotPasse.Text == nouveauStagiaire.MotDePasse)
                         {
+                            
                             Session.Add("stagiaireActuel", nouveauStagiaire);
+                            Session.Add("identifiantDuStagiaire", nouveauStagiaire.Id);
                             Response.Redirect("ListerStages.aspx");
                         }
                 }

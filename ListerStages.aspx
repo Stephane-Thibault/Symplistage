@@ -4,93 +4,38 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-    <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="TP2.GestionStagesDataContext" EntityTypeName="" Select="new (Titre, Début, Fin, Commentaire)" TableName="Stages" OrderBy="StagiaireId" Where="Id == @Id">
-        <WhereParameters>
-            <asp:SessionParameter Name="Id" DefaultValue="1" SessionField="stagiaire" Type="Int32" />
-        </WhereParameters>
-    </asp:LinqDataSource>
-    <asp:ListView ID="ListView1" runat="server" DataSourceID="LinqDataSource1">
-        <AlternatingItemTemplate>
-            <tr style="background-color:#FFF8DC;">
-                <td><asp:Label ID="TitreLabel" runat="server" Text='<%# Eval("Titre") %>' /></td>
-                <td><asp:Label ID="DébutLabel" runat="server" Text='<%# Eval("Début") %>' /></td>
-                <td><asp:Label ID="FinLabel" runat="server" Text='<%# Eval("Fin") %>' /></td>
-                <td><asp:Label ID="CommentaireLabel" runat="server" Text='<%# Eval("Commentaire") %>' /></td>
-            </tr>
-        </AlternatingItemTemplate>
-        <EditItemTemplate>
-            <tr style="background-color:#008A8C;color: #FFFFFF;">
-                <td>
-                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                </td>
-                <td><asp:TextBox ID="TitreTextBox" runat="server" Text='<%# Bind("Titre") %>' /></td>
-                <td><asp:TextBox ID="DébutTextBox" runat="server" Text='<%# Bind("Début") %>' /></td>
-                <td><asp:TextBox ID="FinTextBox" runat="server" Text='<%# Bind("Fin") %>' /></td>
-                <td><asp:TextBox ID="CommentaireTextBox" runat="server" Text='<%# Bind("Commentaire") %>' /></td>
-            </tr>
-        </EditItemTemplate>
-        <EmptyDataTemplate>
-            <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
-                <tr>
-                    <td>No data was returned.</td>
-                </tr>
-            </table>
-        </EmptyDataTemplate>
-        <InsertItemTemplate>
-            <tr style="">
-                <td>
-                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                </td>
-                <td><asp:TextBox ID="TitreTextBox" runat="server" Text='<%# Bind("Titre") %>' /></td>
-                <td><asp:TextBox ID="DébutTextBox" runat="server" Text='<%# Bind("Début") %>' /></td>
-                <td><asp:TextBox ID="FinTextBox" runat="server" Text='<%# Bind("Fin") %>' /></td>
-                <td><asp:TextBox ID="CommentaireTextBox" runat="server" Text='<%# Bind("Commentaire") %>' /></td>
-            </tr>
-        </InsertItemTemplate>
-        <ItemTemplate>
-            <tr style="background-color:#DCDCDC;color: #000000;">
-                <td><asp:Label ID="TitreLabel" runat="server" Text='<%# Eval("Titre") %>' /></td>
-                <td><asp:Label ID="DébutLabel" runat="server" Text='<%# Eval("Début") %>' /></td>
-                <td><asp:Label ID="FinLabel" runat="server" Text='<%# Eval("Fin") %>' /></td>
-                <td><asp:Label ID="CommentaireLabel" runat="server" Text='<%# Eval("Commentaire") %>' /></td>
-            </tr>
-        </ItemTemplate>
-        <LayoutTemplate>
-            <table runat="server">
-                <tr runat="server">
-                    <td runat="server">
-                        <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                            <tr runat="server" style="background-color:#DCDCDC;color: #000000;">
-                                <th runat="server">Titre</th>
-                                <th runat="server">Début</th>
-                                <th runat="server">Fin</th>
-                                <th runat="server">Commentaire</th>
-                            </tr>
-                            <tr id="itemPlaceholder" runat="server">
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr runat="server">
-                    <td runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;"></td>
-                </tr>
-            </table>
-        </LayoutTemplate>
-        <SelectedItemTemplate>
-            <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
-                <td><asp:Label ID="TitreLabel" runat="server" Text='<%# Eval("Titre") %>' /></td>
-                <td><asp:Label ID="DébutLabel" runat="server" Text='<%# Eval("Début") %>' /></td>
-                <td><asp:Label ID="FinLabel" runat="server" Text='<%# Eval("Fin") %>' /></td>
-                <td><asp:Label ID="CommentaireLabel" runat="server" Text='<%# Eval("Commentaire") %>' /></td>
-            </tr>
-        </SelectedItemTemplate>
-    </asp:ListView>
     <table>
         <tr>
+            <td><asp:GridView ID="GridView" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" />
+                    <asp:BoundField DataField="Titre" HeaderText="Titre" SortExpression="Titre" />
+                    <asp:BoundField DataField="Début" HeaderText="Début" SortExpression="Début" />
+                    <asp:BoundField DataField="Fin" HeaderText="Fin" SortExpression="Fin" />
+                    <asp:BoundField DataField="Commentaire" HeaderText="Commentaire" SortExpression="Commentaire" />
+                </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Titre], [Début], [Fin], [Commentaire] FROM [Stage] WHERE ([Id] = @Id)">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="Id" SessionField="identifiantDuStagiaire" Type="Int32" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </td>
+        </tr>
+        <tr>
             <td><asp:Button ID="btnModifier" runat="server" Text="Modifier" /></td>
-            <td><asp:Button ID="btnAjouter" runat="server" Text="Ajouter" /></td>
+            <td><asp:Button ID="btnAjouter" runat="server" Text="Ajouter" OnClick="btnAjouter_Click" /></td>
             <td></td>
             <td><asp:Button ID="btnQuitter" runat="server" Text="Quitter" OnClick="btnQuitter_Click" /></td>
         </tr>

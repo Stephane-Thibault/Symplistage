@@ -13,48 +13,48 @@ namespace TP2 {
     public partial class WebForm6 {
         
         /// <summary>
-        /// lvStagiaires control.
+        /// SqlDDStagiaires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvStagiaires;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDDStagiaires;
         
         /// <summary>
-        /// lvSuperviseurs control.
+        /// GridStagiaires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvSuperviseurs;
+        protected global::System.Web.UI.WebControls.GridView GridStagiaires;
         
         /// <summary>
-        /// LinqDataSource1 control.
+        /// GridSuperviseur control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinqDataSource LinqDataSource1;
+        protected global::System.Web.UI.WebControls.GridView GridSuperviseur;
         
         /// <summary>
-        /// LinqDataSource2 control.
+        /// SqlDDSSuperviseur control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinqDataSource LinqDataSource2;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDDSSuperviseur;
         
         /// <summary>
-        /// RadioButtonList1 control.
+        /// btnQuitter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        protected global::System.Web.UI.WebControls.Button btnQuitter;
     }
 }
