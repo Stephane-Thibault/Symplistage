@@ -85,6 +85,15 @@ namespace TP2 {
         protected global::System.Web.UI.WebControls.GridView GridModifierSuperviseur;
         
         /// <summary>
+        /// SqlDDSModifierSuperviseur control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDDSModifierSuperviseur;
+        
+        /// <summary>
         /// btnModifierContinuer control.
         /// </summary>
         /// <remarks>
@@ -103,13 +112,13 @@ namespace TP2 {
         protected global::System.Web.UI.WebControls.Button btnLister;
         
         /// <summary>
-        /// ddlListerInformations control.
+        /// ddlListerStageOuStagiaires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlListerInformations;
+        protected global::System.Web.UI.WebControls.DropDownList ddlListerStageOuStagiaires;
         
         /// <summary>
         /// GridListerStagiaires control.
@@ -121,40 +130,13 @@ namespace TP2 {
         protected global::System.Web.UI.WebControls.GridView GridListerStagiaires;
         
         /// <summary>
-        /// SqlDDSListerStagiaire control.
+        /// SqlDDSListerStagiaires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDDSListerStagiaire;
-        
-        /// <summary>
-        /// SqlDDSModifierSuperviseur control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDDSModifierSuperviseur;
-        
-        /// <summary>
-        /// GridListerSuperviseurs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridListerSuperviseurs;
-        
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDDSListerStagiaires;
         
         /// <summary>
         /// btnListerContinuer control.

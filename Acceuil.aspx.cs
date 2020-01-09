@@ -48,7 +48,6 @@ namespace TP2
                     Session.Add("identifiantDuStagiaire", nouveauStagiaire.Id);
                     Response.Redirect("ListerStages.aspx");
                 }
-
             }
 
             else if (ddlGrade.Text == "Superviseur")
