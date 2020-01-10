@@ -16,10 +16,16 @@ namespace TP2
 
         }
 
-        protected void btnConnection_Click(object sender, EventArgs e)
+        #region Boutons
+
+         protected void btnConnection_Click(object sender, EventArgs e)
         {
             RedirigerUtilisateur();
         }
+
+        #endregion
+
+        #region Fonctions de redirection
 
         private void RedirigerUtilisateur()
         {
@@ -93,5 +99,7 @@ namespace TP2
                 }
             }
         }
+
+        #endregion
     }
 }

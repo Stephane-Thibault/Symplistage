@@ -14,10 +14,16 @@ namespace TP2
             AfficherChoixDeLUtilisateur();
         }
 
+        #region Boutons
+
         protected void btnQuitter_Click(object sender, EventArgs e)
         {
             Response.Redirect("Utilisateur.aspx");
         }
+
+        #endregion
+
+        #region Fonctions d'affichage
 
         private void AfficherChoixDeLUtilisateur()
         {
@@ -33,5 +39,7 @@ namespace TP2
                 GridStagiaires.Visible = false;
             }
         }
+
+        #endregion
     }
 }

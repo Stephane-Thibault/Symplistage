@@ -15,15 +15,26 @@ namespace TP2
             AffichageDesDonnees();
         }
 
+        #region Boutons
+
         protected void btnQuitter_Click(object sender, EventArgs e)
         {
             Quitter();
+
         }
+
+        #endregion
+
+        #region Fonction d'affichage
 
         private void AffichageDesDonnees()
         {
             Stagiaire stagiaireActuel = Session["stagiaireActuel"] as Stagiaire;
         }
+
+        #endregion
+
+        #region Fonctions principales
 
         private void Quitter()
         {
@@ -36,5 +47,7 @@ namespace TP2
                 Response.Redirect("Acceuil.aspx");
             }
         }
+
+        #endregion
     }
 }

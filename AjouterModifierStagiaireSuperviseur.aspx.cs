@@ -14,10 +14,16 @@ namespace TP2
             EcrireMiseEnContexte();
         }
 
+        #region Boutons
+
         protected void btnQuitter_Click(object sender, EventArgs e)
         {
             ValiderFormulaireEtQuitter();
         }
+
+        #endregion
+
+        #region Fonctions principales
 
         private void EcrireMiseEnContexte()
         {
@@ -81,5 +87,6 @@ namespace TP2
                 throw new ArgumentException("Erreur");
             }
         }
+        #endregion
     }
 }

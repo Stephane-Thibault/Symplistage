@@ -14,10 +14,16 @@ namespace TP2
 
         }
 
+        #region Boutons
+
         protected void btnQuitter_Click(object sender, EventArgs e)
         {
             AjouterOuModifierUnStageEtRediriger();
         }
+
+        #endregion
+
+        #region Fonctions principales
 
         private void AjouterOuModifierUnStageEtRediriger()
         {
@@ -66,5 +72,7 @@ namespace TP2
             }
             Response.Redirect("Utilisateur.aspx");
         }
+
+        #endregion
     }
 }
