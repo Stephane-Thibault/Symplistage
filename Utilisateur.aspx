@@ -12,8 +12,9 @@
                     <asp:ListItem>Stagiaire</asp:ListItem>
                     <asp:ListItem>Superviseur</asp:ListItem>
                 </asp:DropDownList></td>
-            <td></td>
-            <td><asp:Button ID="btnAjouterContinuer" runat="server" Text="Continuer" Visible="False" /></td>            
+            <td style="height: 33px"></td>
+            <td style="height: 33px"><asp:Button ID="btnAjouterContinuer" runat="server" Text="Continuer" Visible="False" OnClick="btnAjouterContinuer_Click" /></td>
+            <td><asp:Label ID="lblControlErreurAjouter" runat="server" Text=""></asp:Label></td>
         </tr>
         <tr>
             <td style="width: 305px"><asp:Button ID="btnModifier" runat="server" Text="Modifier les détails des utilisateurs" OnClick="btnModifierStages_Click" UseSubmitBehavior="False" /></td>
@@ -37,7 +38,8 @@
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDDSModifierSuperviseur" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Nom] FROM [Superviseur]"></asp:SqlDataSource>
             </td>
-            <td><asp:Button ID="btnModifierContinuer" runat="server" Text="Continuer" Visible="False" /></td>
+            <td><asp:Button ID="btnModifierContinuer" runat="server" Text="Continuer" Visible="False" OnClick="btnModifierContinuer_Click" style="height: 29px" /></td>
+            <td><asp:Label ID="lblControlErreurModifier" runat="server" Text=""></asp:Label></td>
         </tr>
         <tr>
             <td style="width: 305px"><asp:Button ID="btnLister" runat="server" Text="Lister les infos des utilisateurs ou stages" Width="259px" OnClick="btnLister_Click" UseSubmitBehavior="False" /></td>
@@ -57,6 +59,7 @@
                 <asp:SqlDataSource ID="SqlDDSListerStagiaires" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Nom] FROM [Stagiaire]"></asp:SqlDataSource>
             </td>
             <td><asp:Button ID="btnListerContinuer" runat="server" Text="Continuer" OnClick="btnListerContinuer_Click" Visible="False" /></td>
+            <td><asp:Label ID="lblControlErreurLister" runat="server" Text=""></asp:Label></td>
         </tr>
         <tr>
             <td style="width: 305px"></td>

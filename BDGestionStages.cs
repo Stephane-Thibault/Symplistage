@@ -41,7 +41,6 @@ namespace TP2
             this.m_BaseDeDonnées.SubmitChanges();
         }
 
-
         #region Stagiaire
 
         /// <summary>
@@ -86,7 +85,6 @@ namespace TP2
         }
 
         #endregion
-
 
         #region Superviseur
 

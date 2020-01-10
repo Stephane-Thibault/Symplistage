@@ -13,6 +13,15 @@ namespace TP2 {
     public partial class WebForm4 {
         
         /// <summary>
+        /// lblTitre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTitre;
+        
+        /// <summary>
         /// lblNom control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace TP2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNom;
+        
+        /// <summary>
+        /// lblExampleNomPrenom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblExampleNomPrenom;
         
         /// <summary>
         /// txtNom control.
@@ -58,6 +76,15 @@ namespace TP2 {
         protected global::System.Web.UI.WebControls.Label lblTelephone;
         
         /// <summary>
+        /// lblExampleTelephone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblExampleTelephone;
+        
+        /// <summary>
         /// txtTelephone control.
         /// </summary>
         /// <remarks>
@@ -92,6 +119,15 @@ namespace TP2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCourriel;
+        
+        /// <summary>
+        /// lblExampleCourriel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblExampleCourriel;
         
         /// <summary>
         /// txtCourriel control.
