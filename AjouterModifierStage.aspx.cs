@@ -35,6 +35,7 @@ namespace TP2
 
                     BDGestionStages bd = new BDGestionStages();
                     bd.Ajouter(nouveauStage, nouveauStage.SupersiveurId, nouveauStage.StagiaireId);
+                    bd.Sauvegarder();
                 }
                 catch (Exception ex)
                 {
@@ -46,6 +47,8 @@ namespace TP2
             {
                 try
                 {
+                    BDGestionStages bd = new BDGestionStages();
+                    //bd.GetStage()
                     //getStage dans db...
                     Stage nouveauStage = new Stage();
                     nouveauStage.Titre = this.txtTitre.Text;
@@ -55,8 +58,9 @@ namespace TP2
                     nouveauStage.SupersiveurId = Convert.ToInt32(txtSuperviseurId.Text);
                     nouveauStage.StagiaireId = Convert.ToInt32(txtStagiaireId.Text);
 
-                    BDGestionStages bd = new BDGestionStages();
+                    
                     bd.Ajouter(nouveauStage, nouveauStage.SupersiveurId, nouveauStage.StagiaireId);
+                    bd.Sauvegarder();
                 }
                 catch (Exception ex)
                 {

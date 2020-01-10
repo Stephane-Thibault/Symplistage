@@ -80,6 +80,7 @@ namespace TP2
             {
                 throw new ArgumentException("Erreur");
             }
+            Response.Redirect("Utilisateur.aspx");
         }
     }
 }
