@@ -47,7 +47,6 @@ namespace TP2
                     Session.Add("identifiantDuStagiaire", nouveauStagiaire.Id);
                     Response.Redirect("ListerStages.aspx");
                 }
-
             }
 
             else if (ddlGrade.Text == "Superviseur")
@@ -78,7 +77,6 @@ namespace TP2
 
                 try
                 {
-
                     administrateur = bd.GetAdministrateur();
                 }
 
@@ -93,7 +91,6 @@ namespace TP2
                     Session.Add("administrateurActuel", administrateur);
                     Response.Redirect("Utilisateur.aspx"); 
                 }
-
             }
         }
     }

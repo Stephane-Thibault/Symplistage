@@ -27,12 +27,18 @@ namespace TP2
 
         protected void btnLister_Click(object sender, EventArgs e)
         {
-            ListerUtilisateursApparaitre();
+            InterfaceFurtive();
+            AfficherDdlLister();
         }
 
         protected void btnListerContinuer_Click(object sender, EventArgs e)
         {
-            ListerUtilisateurs();
+            RedirigerListerUtilisateur();
+        }
+
+        protected void btnQuitter_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Acceuil.aspx");
         }
 
         protected void btnAjouterContinuer_Click(object sender, EventArgs e)
@@ -51,7 +57,6 @@ namespace TP2
             ddlAjouter.Visible = true;
             btnAjouterContinuer.Visible = true;
             btnModifierContinuer.Visible = false;
-            btnListerContinuer.Visible = false;
         }
 
         private void ModifierUtilisateurs()
@@ -89,32 +94,10 @@ namespace TP2
             }
         }
 
-        private void ListerUtilisateursApparaitre()
-        {
-            ddlListerInformations.Visible = true;
-            btnListerContinuer.Visible = true;
-        }
-        
-        private void ListerUtilisateurs()
-        {
-            if (ddlListerInformations.Text == "Stagiaire")
-            {
-                Session.Add("ListerUtilisateur", "stagiaire" );
-                Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
-            }
-
-            else
-            {
-                Session.Add("ListerUtilisateur", "superviseur");
-                Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
-            }
-        }
-
         private void InterfaceFurtive()
         {
             ddlAjouter.Visible = false;
             ddlModifier.Visible = false;
-            ddlListerInformations.Visible = false;
             GridModifierStagiaire.Visible = false;
             GridModifierSuperviseur.Visible = false;
             btnListerContinuer.Visible = false;
@@ -122,17 +105,37 @@ namespace TP2
             btnModifierContinuer.Visible = false;
         }
 
-        private void VerifierGrade()
+        private void RedirigerListerUtilisateur()
         {
             if ((string)Session["gradeUtilisateurEnCours"] == "Superviseur")
             {
-                //Retirer le choix superviseur de ddlListerInformations pour pas que l'utilisateur y ait accès.
-
+                if (ddlListerStageOuStagiaires.SelectedValue == "Stages")
+                {
+                    GridListerStagiaires.Visible = true;
+                }
+                else if(ddlListerStageOuStagiaires.SelectedValue == "Stagiaires")
+                {
+                    Session.Add("ListerUtilisateur", "stagiaire");
+                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+                }
             }
 
             else
             {
-                //Retirer le choix stagiaire de ddlListerInformations pour pas que l'utilisateur y ait accès.
+                if (ddlListerStageOuStagiaires.SelectedValue == "Stagiaires")
+                {
+                    Session.Add("ListerUtilisateur", "stagiaire");
+                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+                }
+                else if(ddlListerStageOuStagiaires.SelectedValue == "Superviseurs")
+                {
+                    Session.Add("ListerUtilisateur", "superviseur");
+                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+                }
+                else
+                {
+                    Console.WriteLine("Vous n'ètes pas authorisé à accéder à ce contenu.");
+                }
             }
         }
 
@@ -158,6 +161,35 @@ namespace TP2
             {
                 lblControlErreurAjouter.Text = "Action impossible selon vos droits.";
                 InterfaceFurtive();
+            }
+        }
+        
+        private void ListerUtilisateurs()
+        {
+            Session.Add("ListerUtilisateur", "superviseur");
+            Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+        }
+
+        private void AfficherDdlLister()
+        {
+            ddlListerStageOuStagiaires.Visible = true;
+            btnListerContinuer.Visible = true;
+
+        }
+
+        protected void GridListerStagiaires_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string nomStagiaire = GridListerStagiaires.SelectedRow.Cells[1].Text;
+
+            BDGestionStages bd = new BDGestionStages();
+
+            foreach (Stagiaire stagiaire in bd.GetAllStagiaires())
+            {
+                if ( nomStagiaire == stagiaire.Nom)
+                {
+                    Session.Add("identifiantDuStagiaire", stagiaire.Id);
+                    Response.Redirect("ListerStages.aspx");
+                }
             }
         }
     }

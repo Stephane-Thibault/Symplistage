@@ -9,7 +9,6 @@
             <td><asp:GridView ID="GridView" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
-                    <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="Titre" HeaderText="Titre" SortExpression="Titre" />
                     <asp:BoundField DataField="Début" HeaderText="Début" SortExpression="Début" />
                     <asp:BoundField DataField="Fin" HeaderText="Fin" SortExpression="Fin" />
@@ -34,9 +33,6 @@
             </td>
         </tr>
         <tr>
-            <td><asp:Button ID="btnModifier" runat="server" Text="Modifier" /></td>
-            <td><asp:Button ID="btnAjouter" runat="server" Text="Ajouter" OnClick="btnAjouter_Click" /></td>
-            <td></td>
             <td><asp:Button ID="btnQuitter" runat="server" Text="Quitter" OnClick="btnQuitter_Click" /></td>
         </tr>
     </table>

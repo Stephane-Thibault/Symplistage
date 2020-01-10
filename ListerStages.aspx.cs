@@ -10,40 +10,31 @@ namespace TP2
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e){
-
-            Stagiaire stagiaireActuel = Session["stagiaireActuel"] as Stagiaire;
-
-            VerificationUtilisateur();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            AffichageDesDonnees();
         }
 
         protected void btnQuitter_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Acceuil.aspx");
+            Quitter();
         }
 
-        protected void btnAjouter_Click(object sender, EventArgs e)
+        private void AffichageDesDonnees()
         {
-            AjouterUnStage();
+            Stagiaire stagiaireActuel = Session["stagiaireActuel"] as Stagiaire;
         }
 
-        private void VerificationUtilisateur()
+        private void Quitter()
         {
             if (Session["gradeUtilisateurEnCours"] == "Superviseur")
             {
-                btnAjouter.Enabled = true;
-                btnModifier.Enabled = true;
+                Response.Redirect("Utilisateur.aspx");
             }
             else
             {
-                btnAjouter.Enabled = false;
-                btnModifier.Enabled = false;
+                Response.Redirect("Acceuil.aspx");
             }
-        }
-
-        private void AjouterUnStage()
-        {
-
         }
     }
 }
