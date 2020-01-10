@@ -15,20 +15,28 @@ namespace TP2
             InterfaceFurtive();
         }
 
+        #region Boutons
         protected void btnAjouter_Click(object sender, EventArgs e)
         {
-            AjouterUtilisateurs();
+            ResetLabels();
+            InterfaceFurtive();
+            AfficherDdlAjouter();
         }
 
         protected void btnModifierStages_Click(object sender, EventArgs e)
         {
+            ResetLabels();
+            InterfaceFurtive();
+            AfficherDdlModifier();
             ModifierUtilisateurs();
         }
 
         protected void btnLister_Click(object sender, EventArgs e)
         {
+            ResetLabels();
             InterfaceFurtive();
             AfficherDdlLister();
+            ModifierUtilisateurs();
         }
 
         protected void btnListerContinuer_Click(object sender, EventArgs e)
@@ -50,54 +58,22 @@ namespace TP2
         {
             RedirigerVersElementAModifier();
         }
+        #endregion
 
-        private void AjouterUtilisateurs()
+        #region Fonctions de nettoyage
+
+        private void ResetLabels()
         {
             lblControlErreurAjouter.Text = "";
-            ddlAjouter.Visible = true;
-            btnAjouterContinuer.Visible = true;
-            btnModifierContinuer.Visible = false;
-        }
-
-        private void ModifierUtilisateurs()
-        {
-            InterfaceFurtive();
-            ddlModifier.Items.Clear();
-            if((string)Session["gradeUtilisateurEnCours"] == "Administrateur")
-            {
-                ddlModifier.Items.Add("Stagiaire");
-                ddlModifier.Items.Add("Superviseur");
-            }
-            else
-            {
-                ddlModifier.Items.Add("Stagiaire");
-            }
-            ddlModifier.Visible = true;
-            btnModifierContinuer.Visible = true;
-        }
-
-        private void RedirigerVersElementAModifier()
-        {
-            Session["elementAModifier"] = null;
-
-            if(ddlModifier.Text == "Superviseur" && (string)Session["gradeUtilisateurEnCours"] == "Administrateur")
-            {
-                Session["elementAModifier"] = "Superviseur";
-                Response.Redirect("AjouterModifierStagiaireSuperviseur.aspx");
-            }
-            else if (ddlModifier.Text == "Stagiaire" && 
-                    ((string)Session["gradeUtilisateurEnCours"] == "Administrateur" ||
-                    (string)Session["gradeUtilisateurEnCours"] == "Superviseur"))
-            {
-                Session["elementAModifier"] = "Stagiaire";
-                Response.Redirect("AjouterModifierStagiaireSuperviseur.aspx");
-            }
+            lblControlErreurModifier.Text = "";
+            lblControlErreurLister.Text = "";
         }
 
         private void InterfaceFurtive()
         {
             ddlAjouter.Visible = false;
             ddlModifier.Visible = false;
+            ddlListerStageOuStagiaires.Visible = false;
             GridModifierStagiaire.Visible = false;
             GridModifierSuperviseur.Visible = false;
             btnListerContinuer.Visible = false;
@@ -105,39 +81,31 @@ namespace TP2
             btnModifierContinuer.Visible = false;
         }
 
-        private void RedirigerListerUtilisateur()
-        {
-            if ((string)Session["gradeUtilisateurEnCours"] == "Superviseur")
-            {
-                if (ddlListerStageOuStagiaires.SelectedValue == "Stages")
-                {
-                    GridListerStagiaires.Visible = true;
-                }
-                else if(ddlListerStageOuStagiaires.SelectedValue == "Stagiaires")
-                {
-                    Session.Add("ListerUtilisateur", "stagiaire");
-                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
-                }
-            }
+        #endregion
 
-            else
-            {
-                if (ddlListerStageOuStagiaires.SelectedValue == "Stagiaires")
-                {
-                    Session.Add("ListerUtilisateur", "stagiaire");
-                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
-                }
-                else if(ddlListerStageOuStagiaires.SelectedValue == "Superviseurs")
-                {
-                    Session.Add("ListerUtilisateur", "superviseur");
-                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
-                }
-                else
-                {
-                    Console.WriteLine("Vous n'ètes pas authorisé à accéder à ce contenu.");
-                }
-            }
+        #region Fonctions d'affichage de dropDownList
+
+        private void AfficherDdlLister()
+        {
+            ddlListerStageOuStagiaires.Visible = true;
+            btnListerContinuer.Visible = true;
         }
+
+        private void AfficherDdlAjouter()
+        {
+            ddlAjouter.Visible = true;
+            btnAjouterContinuer.Visible = true;
+        }
+
+        private void AfficherDdlModifier()
+        {
+            ddlModifier.Visible = true;
+            btnModifierContinuer.Visible = true;
+        }
+
+        #endregion
+
+        #region Fonctions Principales
 
         private void RedirigerVersElementAAjouter()
         {
@@ -163,18 +131,77 @@ namespace TP2
                 InterfaceFurtive();
             }
         }
-        
-        private void ListerUtilisateurs()
+
+        private void ModifierUtilisateurs()
         {
-            Session.Add("ListerUtilisateur", "superviseur");
-            Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+            ddlModifier.Items.Clear();
+            ddlListerStageOuStagiaires.Items.Clear();
+
+            if ((string)Session["gradeUtilisateurEnCours"] == "Administrateur")
+            {
+                ddlModifier.Items.Add("Stagiaire");
+                ddlModifier.Items.Add("Superviseur");
+                ddlListerStageOuStagiaires.Items.Add("Stagiaire");
+                ddlListerStageOuStagiaires.Items.Add("Superviseur");
+            }
+            else
+            {
+                ddlModifier.Items.Add("Stagiaire");
+                ddlListerStageOuStagiaires.Items.Add("Stages");
+                ddlListerStageOuStagiaires.Items.Add("Stagiaires");
+            }
         }
 
-        private void AfficherDdlLister()
+        private void RedirigerVersElementAModifier()
         {
-            ddlListerStageOuStagiaires.Visible = true;
-            btnListerContinuer.Visible = true;
+            Session["elementAModifier"] = null;
 
+            if(ddlModifier.Text == "Superviseur" && (string)Session["gradeUtilisateurEnCours"] == "Administrateur")
+            {
+                Session["elementAModifier"] = "Superviseur";
+                Response.Redirect("AjouterModifierStagiaireSuperviseur.aspx");
+            }
+            else if (ddlModifier.Text == "Stagiaire" && 
+                    ((string)Session["gradeUtilisateurEnCours"] == "Administrateur" ||
+                    (string)Session["gradeUtilisateurEnCours"] == "Superviseur"))
+            {
+                Session["elementAModifier"] = "Stagiaire";
+                Response.Redirect("AjouterModifierStagiaireSuperviseur.aspx");
+            }
+        }
+
+        private void RedirigerListerUtilisateur()
+        {
+            if ((string)Session["gradeUtilisateurEnCours"] == "Superviseur")
+            {
+                if (ddlListerStageOuStagiaires.SelectedValue == "Stages")
+                {
+                    GridListerStagiaires.Visible = true;
+                }
+                else if(ddlListerStageOuStagiaires.SelectedValue == "Stagiaires")
+                {
+                    Session.Add("ListerUtilisateur", "stagiaire");
+                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+                }
+            }
+            else
+            {
+                if (ddlListerStageOuStagiaires.SelectedValue == "Stagiaires")
+                {
+                    Session.Add("ListerUtilisateur", "stagiaire");
+                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+                }
+                else if(ddlListerStageOuStagiaires.SelectedValue == "Superviseurs")
+                {
+                    Session.Add("ListerUtilisateur", "superviseur");
+                    Response.Redirect("ListerSuperviseurEtStagiaire.aspx");
+                }
+                else
+                {
+                    lblControlErreurLister.Text = "Action impossible selon vos droits.";
+                    InterfaceFurtive();
+                }
+            }
         }
 
         protected void GridListerStagiaires_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,12 +212,14 @@ namespace TP2
 
             foreach (Stagiaire stagiaire in bd.GetAllStagiaires())
             {
-                if ( nomStagiaire == stagiaire.Nom)
+                if (nomStagiaire == stagiaire.Nom)
                 {
                     Session.Add("identifiantDuStagiaire", stagiaire.Id);
                     Response.Redirect("ListerStages.aspx");
                 }
             }
         }
+
+        #endregion
     }
 }

@@ -59,6 +59,7 @@
                 <asp:SqlDataSource ID="SqlDDSListerStagiaires" runat="server" ConnectionString="<%$ ConnectionStrings:GestionStagesConnectionString %>" SelectCommand="SELECT [Nom] FROM [Stagiaire]"></asp:SqlDataSource>
             </td>
             <td><asp:Button ID="btnListerContinuer" runat="server" Text="Continuer" OnClick="btnListerContinuer_Click" Visible="False" /></td>
+            <td><asp:Label ID="lblControlErreurLister" runat="server" Text=""></asp:Label></td>
         </tr>
         <tr>
             <td style="width: 305px"></td>

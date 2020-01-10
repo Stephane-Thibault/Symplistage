@@ -48,7 +48,7 @@ namespace TP2
                 try
                 {
                     BDGestionStages bd = new BDGestionStages();
-                    //bd.GetStage()
+                    //bd.GetStage(int id)
                     //getStage dans db...
                     Stage nouveauStage = new Stage();
                     nouveauStage.Titre = this.txtTitre.Text;
