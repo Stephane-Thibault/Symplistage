@@ -110,9 +110,6 @@ namespace TP2
                 }
             }
         }
-
-
-
         
         private void ListerUtilisateurs()
         {
