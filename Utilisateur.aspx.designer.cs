@@ -40,6 +40,15 @@ namespace TP2 {
         protected global::System.Web.UI.WebControls.Button btnAjouterContinuer;
         
         /// <summary>
+        /// lblControlErreurAjouter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblControlErreurAjouter;
+        
+        /// <summary>
         /// btnModifier control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace TP2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnModifierContinuer;
+        
+        /// <summary>
+        /// lblControlErreurModifier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblControlErreurModifier;
         
         /// <summary>
         /// btnLister control.

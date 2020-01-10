@@ -5,28 +5,48 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
         <tr>
-            <td><asp:Label ID="lblTitre" runat="server" Text="Titre :"></asp:Label></td>
+            <td style="width: 172px"><asp:Label ID="lblTitre" runat="server" Text="Titre :"></asp:Label></td>
             <td><asp:TextBox ID="txtTitre" runat="server"></asp:TextBox></td>
-            <td><asp:RequiredFieldValidator ID="rfvTitre" runat="server" ErrorMessage="Veuillez entrer un titre"></asp:RequiredFieldValidator></td>
+            <td><asp:RequiredFieldValidator ID="rfvTitre" runat="server" ErrorMessage="Veuillez entrer un titre" ControlToValidate="txtTitre"></asp:RequiredFieldValidator></td>
         </tr>
         <tr>
-            <td><asp:Label ID="lblDateDebut" runat="server" Text="Date de début :"></asp:Label></td>
+            <td style="width: 172px"><asp:Label ID="lblDateDebut" runat="server" Text="Date de début :"></asp:Label></td>
             <td><asp:TextBox ID="txtDateDebut" runat="server"></asp:TextBox></td>
-            <td><asp:RequiredFieldValidator ID="rfvtxtDateDebut" runat="server" ErrorMessage="Veuillez entrer une date de début de stage."></asp:RequiredFieldValidator></td>
+            <td><asp:RequiredFieldValidator ID="rfvtxtDateDebut" runat="server" ErrorMessage="Veuillez entrer une date de début de stage." ControlToValidate="txtDateDebut"></asp:RequiredFieldValidator></td>
             <td></td>
         </tr>
         <tr>
-            <td><asp:Label ID="lblDateFin" runat="server" Text="Date de fin :"></asp:Label></td>
+            <td style="width: 172px"><asp:Label ID="lblDateFin" runat="server" Text="Date de fin :"></asp:Label></td>
             <td><asp:TextBox ID="txtDateFin" runat="server"></asp:TextBox></td>
-            <td><asp:RequiredFieldValidator ID="rfvDateFin" runat="server" ErrorMessage="Veuillez entrer une date de fin de stage."></asp:RequiredFieldValidator></td>
+            <td><asp:RequiredFieldValidator ID="rfvDateFin" runat="server" ErrorMessage="Veuillez entrer une date de fin de stage." ControlToValidate="txtDateFin"></asp:RequiredFieldValidator></td>
         </tr>
         <tr>
-            <td><asp:Label ID="lblCommentaire" runat="server" Text="Commentaire :"></asp:Label></td>
-            <td><asp:TextBox ID="txtCommentaire" runat="server"></asp:TextBox></td>
+            <td style="width: 172px">Id du superviseur :</td>
+            <td>
+                <asp:TextBox ID="txtSuperviseurId" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="rfvIdSuperviseur" runat="server" ErrorMessage="Veuillez entrer l'identifiant du superviseur" ControlToValidate="txtSuperviseurId"></asp:RequiredFieldValidator>
+            </td>
+
         </tr>
         <tr>
-            <td></td>
-            <td><asp:Button ID="btnQuitter" runat="server" Text="Retour" OnClick="btnQuitter_Click" /></td>
+            <td style="width: 172px">Id du stagiaire : </td>
+            <td>
+                <asp:TextBox ID="txtStagiaireId" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:RequiredFieldValidator ID="rfvIdStagiaire" runat="server" ErrorMessage="Veuillez entrer l'identifiant du stagiaire." ControlToValidate="txtStagiaireId"></asp:RequiredFieldValidator>
+
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 172px"><asp:Label ID="lblCommentaire" runat="server" Text="Commentaire :"></asp:Label></td>
+            <td><asp:TextBox ID="txtCommentaire" runat="server" TextMode="MultiLine"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td style="width: 172px"></td>
+            <td><asp:Button ID="btnQuitter" runat="server" Text="Valider" OnClick="btnQuitter_Click" /></td>
         </tr>
     </table>
 </asp:Content>

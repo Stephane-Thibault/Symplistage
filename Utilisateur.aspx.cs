@@ -35,8 +35,19 @@ namespace TP2
             ListerUtilisateurs();
         }
 
+        protected void btnAjouterContinuer_Click(object sender, EventArgs e)
+        {
+            RedirigerVersElementAAjouter();
+        }
+
+        protected void btnModifierContinuer_Click(object sender, EventArgs e)
+        {
+            RedirigerVersElementAModifier();
+        }
+
         private void AjouterUtilisateurs()
         {
+            lblControlErreurAjouter.Text = "";
             ddlAjouter.Visible = true;
             btnAjouterContinuer.Visible = true;
             btnModifierContinuer.Visible = false;
@@ -45,18 +56,36 @@ namespace TP2
 
         private void ModifierUtilisateurs()
         {
-            ddlModifier.Visible = true;
-
-            if (ddlModifier.CausesValidation == true)
+            InterfaceFurtive();
+            ddlModifier.Items.Clear();
+            if((string)Session["gradeUtilisateurEnCours"] == "Administrateur")
             {
-                if (ddlListerInformations.Text == "Stagiaire")
-                {
-                    GridModifierStagiaire.Visible = true;
-                }
-                else
-                {
-                    GridModifierSuperviseur.Visible = true;
-                }
+                ddlModifier.Items.Add("Stagiaire");
+                ddlModifier.Items.Add("Superviseur");
+            }
+            else
+            {
+                ddlModifier.Items.Add("Stagiaire");
+            }
+            ddlModifier.Visible = true;
+            btnModifierContinuer.Visible = true;
+        }
+
+        private void RedirigerVersElementAModifier()
+        {
+            Session["elementAModifier"] = null;
+
+            if(ddlModifier.Text == "Superviseur" && (string)Session["gradeUtilisateurEnCours"] == "Administrateur")
+            {
+                Session["elementAModifier"] = "Superviseur";
+                Response.Redirect("AjouterModifierStagiaireSuperviseur.aspx");
+            }
+            else if (ddlModifier.Text == "Stagiaire" && 
+                    ((string)Session["gradeUtilisateurEnCours"] == "Administrateur" ||
+                    (string)Session["gradeUtilisateurEnCours"] == "Superviseur"))
+            {
+                Session["elementAModifier"] = "Stagiaire";
+                Response.Redirect("AjouterModifierStagiaireSuperviseur.aspx");
             }
         }
 
@@ -89,11 +118,13 @@ namespace TP2
             GridModifierStagiaire.Visible = false;
             GridModifierSuperviseur.Visible = false;
             btnListerContinuer.Visible = false;
+            btnAjouterContinuer.Visible = false;
+            btnModifierContinuer.Visible = false;
         }
 
         private void VerifierGrade()
         {
-            if (Session["gradeUtilisateurEnCours"] == "Superviseur")
+            if ((string)Session["gradeUtilisateurEnCours"] == "Superviseur")
             {
                 //Retirer le choix superviseur de ddlListerInformations pour pas que l'utilisateur y ait accès.
 
@@ -105,30 +136,28 @@ namespace TP2
             }
         }
 
-        //PAS ENCORE TERMINÉE
-        private void RedirigerUtilisateur()
+        private void RedirigerVersElementAAjouter()
         {
-
-            if (ddlAjouter.Text == "Stage")
+            Session["elementAAjouter"] = null;
+            if (ddlAjouter.Text == "Superviseur" && (string)Session["gradeUtilisateurEnCours"] == "Administrateur")
             {
-                //GridAjouterStage.Visible = true;
-
-
+                Session.Add("elementAAjouter", "Superviseur");
+                Response.Redirect("AjouterModifierStagiaireSuperviseur.aspx");
             }
-
-            else if (ddlModifier.Text == "Stage")
+            else if (ddlAjouter.Text == "Stagiaire" && (string)Session["gradeUtilisateurEnCours"] == "Administrateur")
             {
-
+                Session.Add("elementAAjouter", "Stagiaire");
+                Response.Redirect("AjouterModifierStagiaireSuperviseur.aspx");
             }
-
-            else if (ddlAjouter.Text == "Stagiaire" || ddlModifier.Text == "Stagiaire" || ddlListerInformations.Text == "Stagiaire")
+            else if (ddlAjouter.Text == "Stage" && (string)Session["gradeUtilisateurEnCours"] == "Superviseur")
             {
-
+                Session.Add("elementAAjouter", "Stage");
+                Response.Redirect("AjouterModifierStage.aspx");
             }
-
             else
             {
-
+                lblControlErreurAjouter.Text = "Action impossible selon vos droits.";
+                InterfaceFurtive();
             }
         }
     }

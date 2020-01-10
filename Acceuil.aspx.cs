@@ -43,7 +43,6 @@ namespace TP2
 
                 if (txtMotPasse.Text == nouveauStagiaire.MotDePasse)
                 {
-                    
                     Session.Add("stagiaireActuel", nouveauStagiaire);
                     Session.Add("identifiantDuStagiaire", nouveauStagiaire.Id);
                     Response.Redirect("ListerStages.aspx");
