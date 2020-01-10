@@ -53,6 +53,7 @@ namespace TP2
 
                     BDGestionStages bd = new BDGestionStages();
                     bd.Ajouter(stagiaireAAjouter);
+                    bd.Sauvegarder();
                 }
                 catch (Exception ex)
                 {
@@ -75,6 +76,7 @@ namespace TP2
 
                     BDGestionStages bd = new BDGestionStages();
                     bd.Ajouter(superviseurAAjouter);
+                    bd.Sauvegarder();
                 }
                 catch (Exception ex)
                 {
@@ -86,6 +88,7 @@ namespace TP2
             {
                 throw new ArgumentException("Erreur");
             }
+            Response.Redirect("Utilisateur.aspx");
         }
         #endregion
     }
